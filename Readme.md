@@ -1,0 +1,1 @@
+microservice to control a equiva3 thermostat with a rest api

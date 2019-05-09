@@ -1,0 +1,7 @@
+# application specific
+node_modules
+config/*.json
+deployment/deployment.sh
+
+#compiled typescript
+lib/*/*.js

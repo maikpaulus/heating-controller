@@ -1,0 +1,48 @@
+{
+  "name": "heating-controller",
+  "version": "1.0.0",
+  "description": "rest service to manage bluetooth heating devices",
+  "main": "index.js",
+  "author": "Maik Paulus <mail@maikpaulus.com>",
+  "license": "ISC",
+  "dependencies": {
+    "amqp": "^0.2.7",
+    "body-parser": "^1.18.3",
+    "config": "^3.0.1",
+    "express": "^4.16.4",
+    "forever": "^0.15.3",
+    "prettier": "^1.15.2",
+    "eq3-radiator": "http://github.com/Heckie75/eQ-3-radiator-thermostat.git"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.10",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "husky": "^1.2.0",
+    "nodemon": "^1.18.7",
+    "ts-loader": "^5.3.0",
+    "typescript": "^3.1.6",
+    "typescript-eslint-parser": "^21.0.1",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon server.js",
+    "start:deployment": "./deployment/deployment.sh",
+    "start:production": "./node_modules/.bin/forever --append --uid heating-controller start server.js",
+    "stop:production": "./node_modules/.bin/forever stop heating-controller",
+    "prettier": "./node_modules/.bin/prettier --ignore-path ./settings/prettier/.prettierignore --config ./settings/prettier/prettier.config.js --write '**/*.{ts,js}'",
+    "eslint": "./node_modules/.bin/eslint --config ./settings/eslint/eslint.config.js '**/*.ts'",
+    "webpack:once": "./node_modules/.bin/webpack --config ./settings/webpack/webpack.config.js",
+    "webpack:watch": "./node_modules/.bin/webpack -w --watch-poll --config ./settings/webpack/webpack.config.js",
+    "tsc:watch": "./node_modules/.bin/tsc --project ./settings/typescript/tsconfig.json -w",
+    "tsc:once": "./node_modules/.bin/tsc --project ./settings/typescript/tsconfig.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier"
+    }
+  }
+}

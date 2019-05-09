@@ -1,0 +1,9 @@
+{
+  "include": [
+    "../../**/*.ts"
+  ],
+  "outDir": "../../lib",
+  "target": "es6",
+  "moduleResolution": "node, es6",
+  "strict": true
+}

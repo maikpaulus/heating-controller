@@ -1,0 +1,13 @@
+{
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "eslint.enable": true,
+    "eslint.options": {
+        "configFile": "/Users/maikpaulus/Documents/work/jssettings-demo/settings/eslint/eslint.config.js" 
+    },
+    "eslint.run": "onType",
+    "eslint.validate": [
+      "javascript",
+      "typescript"
+    ]
+}
